@@ -135,7 +135,7 @@ export default function RootLayout({
             <QueryProvider>{children}</QueryProvider>
           </TooltipProvider>
         </AuthProvider>
-        <Toaster />
+        <Toaster richColors />
       </body>
     </html>
   );

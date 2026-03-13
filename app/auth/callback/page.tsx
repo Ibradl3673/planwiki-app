@@ -62,7 +62,19 @@ export default function AuthCallbackPage() {
           return;
         }
 
-        router.push("/workspaces");
+        const { data: onboarding, error: onboardingError } = await supabase
+          .from("onboarding")
+          .select("has_seen_onboarding")
+          .eq("user_id", user.id)
+          .maybeSingle();
+
+        if (onboardingError) {
+          toast.error("Failed to load onboarding state. Please try again.");
+          router.push("/login?error=onboarding_check_failed");
+          return;
+        }
+
+        router.push(onboarding?.has_seen_onboarding ? "/new" : "/welcome");
       } catch {
         toast.error("An unexpected error occurred. Please try again.");
         router.push("/login?error=auth_callback_failed");

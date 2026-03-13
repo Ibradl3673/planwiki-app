@@ -122,7 +122,7 @@ export default function PricingCards() {
           <Button
             asChild
             size="lg"
-            className={`mt-8 h-12 w-full rounded-sm border px-6 text-sm ${
+            className={`mt-8 h-12 w-full rounded-none border px-6 text-sm ${
               plan.featured
                 ? "border-white bg-white text-zinc-950 hover:bg-zinc-200"
                 : "border-zinc-950 bg-zinc-950 text-white hover:bg-zinc-800"

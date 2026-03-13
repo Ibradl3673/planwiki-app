@@ -223,7 +223,7 @@ export default function LandingPage() {
             <Button
               asChild
               size="lg"
-              className="h-12 border border-zinc-950 bg-zinc-950 px-8 text-base text-[#f6f1e8] hover:bg-zinc-800 rounded-sm"
+              className="h-12 rounded-none border border-zinc-950 bg-zinc-950 px-8 text-base text-[#f6f1e8] hover:bg-zinc-800"
             >
               <Link href="/login">
                 Get Started for Free

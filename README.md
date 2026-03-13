@@ -1,7 +1,7 @@
 ```markdown
 # PlanWiki
 
-Turn AI-generated plans into interactive workspaces.
+Turn AI plans into interactive workspaces.
 
 PlanWiki takes a plan generated from any chatbot (ChatGPT, Claude, Gemini,etc.), parses the text, and converts it into structured UI components like tasks, cards, checklists, and progress trackers — so you can actually execute the plan instead of managing it as static text.
 

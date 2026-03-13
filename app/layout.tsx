@@ -25,8 +25,96 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PlanWiki",
-  description: "Turn AI Plans into Interactive Workspaces.",
+  title: {
+    default: "PlanWiki - Turn AI Plans into Interactive Workspaces",
+    template: "%s | PlanWiki",
+  },
+  description:
+    "PlanWiki turns AI-generated plans into interactive workspaces with tasks, cards, checklists, table widgets, progress tracking, and chat-backed messages so you can execute, edit, and share plans instead of managing static text.",
+  keywords: [
+    "PlanWiki",
+    "AI plans",
+    "interactive workspaces",
+    "AI planning",
+    "ChatGPT plans",
+    "Claude plans",
+    "Gemini plans",
+    "plan parser",
+    "task cards",
+    "checklists",
+    "table widgets",
+    "plan tables",
+    "progress tracking",
+    "AI chat workspaces",
+    "workspace messages",
+    "chat plans",
+    "project planning",
+    "startup launch plans",
+    "study schedules",
+    "personal budgeting",
+    "shareable plans",
+    "public workspaces",
+    "published plans",
+    "workspace widgets",
+    "AI workflow tools",
+    "plan execution",
+    "Notion Alternative",
+  ],
+  authors: [{ name: "PlanWiki Team" }],
+  creator: "PlanWiki",
+  publisher: "PlanWiki",
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL("https://planwiki.com"),
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "PlanWiki - Turn AI Plans into Interactive Workspaces",
+    description:
+      "Turn AI-generated plans from ChatGPT, Claude, Gemini, and other tools into structured workspaces with widgets, tables, checklists, messages, and shareable public plan pages.",
+    url: "https://planwiki.com",
+    siteName: "PlanWiki",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "PlanWiki - Turn AI Plans into Interactive Workspaces",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "PlanWiki - Turn AI Plans into Interactive Workspaces",
+    description:
+      "PlanWiki turns AI-generated plans into structured workspaces with tasks, tables, checklists, messages, progress tracking, and shareable plan pages.",
+    images: ["/logo.png"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  category: "productivity",
+  classification: "AI Planning, Workspace, and Chat Software",
+  other: {
+    "theme-color": "#000000",
+    "msapplication-TileColor": "#000000",
+    "apple-mobile-web-app-title": "PlanWiki",
+    "application-name": "PlanWiki",
+  },
 };
 
 export default function RootLayout({

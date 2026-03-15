@@ -9,9 +9,17 @@ const baseURL =
   process.env.NEXT_PUBLIC_APP_URL ??
   "http://localhost:3000";
 
+const trustedOrigins = [
+  baseURL,
+  "https://planwiki.com",
+  "https://www.planwiki.com",
+  "http://localhost:3000",
+].filter((value, index, array) => array.indexOf(value) === index);
+
 export const auth = betterAuth({
   database: drizzleAdapter(db, { provider: "pg", schema }),
   baseURL,
+  trustedOrigins,
   secret: process.env.BETTER_AUTH_SECRET,
   socialProviders: {
     google: {

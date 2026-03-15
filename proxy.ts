@@ -5,69 +5,56 @@ const SESSION_COOKIE_NAMES = [
   "__Secure-better-auth.session_token",
 ];
 
-const AUTH_ONLY_PATHS = ["/welcome", "/new", "/workspaces"];
-const AUTH_REDIRECT_PATHS = ["/login"];
-const PUBLIC_ROUTES = ["/", "/auth/callback", "/privacy", "/terms"];
-const PUBLIC_PATH_PREFIXES = ["/api", "/_next", "/favicon.ico"];
-const PUBLIC_WORKSPACE_SEGMENTS = ["/shared/", "/public/"];
-const METADATA_ROUTES = ["/sitemap.xml", "/robots.txt"];
+const PUBLIC_ROUTES = new Set([
+  "/",
+  "/login",
+  "/auth/callback",
+  "/privacy",
+  "/terms",
+  "/sitemap.xml",
+  "/robots.txt",
+]);
 
-const isProtectedPath = (pathname: string) =>
-  AUTH_ONLY_PATHS.some((route) => pathname === route);
-
-const isAuthRedirectPath = (pathname: string) =>
-  AUTH_REDIRECT_PATHS.some((route) => pathname === route);
-
-const isPublicPath = (pathname: string) => {
-  if (PUBLIC_ROUTES.includes(pathname) || METADATA_ROUTES.includes(pathname)) {
+const isPublic = (pathname: string) => {
+  if (PUBLIC_ROUTES.has(pathname)) return true;
+  if (pathname.startsWith("/api/auth")) return true;
+  if (pathname.startsWith("/_next")) return true;
+  if (
+    pathname.startsWith("/workspaces/") &&
+    (pathname.includes("/shared/") || pathname.includes("/public/"))
+  )
     return true;
-  }
-
-  if (PUBLIC_PATH_PREFIXES.some((route) => pathname.startsWith(route))) {
-    return true;
-  }
-
-  if (pathname.startsWith("/workspaces/")) {
-    return PUBLIC_WORKSPACE_SEGMENTS.some((segment) => pathname.includes(segment));
-  }
-
   return false;
 };
 
-export function proxy(request: NextRequest) {
-  const hostname =
-    request.headers.get("x-forwarded-host") ?? request.nextUrl.hostname;
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  const token = SESSION_COOKIE_NAMES.find((name) => request.cookies.get(name));
-  const isAuthenticated = Boolean(token);
+  const isAuthenticated = SESSION_COOKIE_NAMES.some((name) =>
+    request.cookies.get(name),
+  );
 
-  if (hostname === "www.planwiki.com") {
-    const url = request.nextUrl.clone();
-    url.hostname = "planwiki.com";
-    return NextResponse.redirect(url, 308);
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-pathname", pathname);
+
+  if (isPublic(pathname)) {
+    return NextResponse.next({ request: { headers: requestHeaders } });
   }
 
-  if (!isAuthenticated && isProtectedPath(pathname)) {
+  if (!isAuthenticated) {
     const loginUrl = new URL("/login", request.url);
     loginUrl.searchParams.set("redirect", pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  if (isAuthenticated && isAuthRedirectPath(pathname)) {
+  if (isAuthenticated && pathname === "/login") {
     return NextResponse.redirect(new URL("/workspaces", request.url));
   }
 
-  if (isPublicPath(pathname)) {
-    return NextResponse.next();
-  }
-
-  return isAuthenticated
-    ? NextResponse.next()
-    : NextResponse.redirect(new URL("/login", request.url));
+  return NextResponse.next({ request: { headers: requestHeaders } });
 }
 
 export const config = {
   matcher: [
-    "/((?!api/auth|_next/static|_next/image|favicon.ico|robots.txt|sitemap.xml|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

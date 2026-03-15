@@ -35,9 +35,17 @@ const isPublicPath = (pathname: string) => {
 };
 
 export function proxy(request: NextRequest) {
+  const hostname =
+    request.headers.get("x-forwarded-host") ?? request.nextUrl.hostname;
   const { pathname } = request.nextUrl;
   const token = SESSION_COOKIE_NAMES.find((name) => request.cookies.get(name));
   const isAuthenticated = Boolean(token);
+
+  if (hostname === "www.planwiki.com") {
+    const url = request.nextUrl.clone();
+    url.hostname = "planwiki.com";
+    return NextResponse.redirect(url, 308);
+  }
 
   if (!isAuthenticated && isProtectedPath(pathname)) {
     const loginUrl = new URL("/login", request.url);

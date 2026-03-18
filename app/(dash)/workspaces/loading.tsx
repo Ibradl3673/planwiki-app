@@ -20,26 +20,26 @@ export default function WorkspacesLoading() {
               className="flex min-h-[280px] flex-col border border-zinc-950/10 bg-white p-5 md:min-h-[320px] md:p-6"
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
-                <Skeleton className="h-8 w-2/3 rounded-none bg-zinc-950/8" />
-                <Skeleton className="h-4 w-20 rounded-none bg-zinc-950/8" />
+                <Skeleton className="h-8 w-2/3 rounded-sm bg-zinc-950/8" />
+                <Skeleton className="h-4 w-20 rounded-sm bg-zinc-950/8" />
               </div>
 
-              <Skeleton className="mt-4 h-5 w-full rounded-none bg-zinc-950/8" />
-              <Skeleton className="mt-2 h-5 w-5/6 rounded-none bg-zinc-950/8" />
-              <Skeleton className="mt-2 h-5 w-3/4 rounded-none bg-zinc-950/8" />
+              <Skeleton className="mt-4 h-5 w-full rounded-sm bg-zinc-950/8" />
+              <Skeleton className="mt-2 h-5 w-5/6 rounded-sm bg-zinc-950/8" />
+              <Skeleton className="mt-2 h-5 w-3/4 rounded-sm bg-zinc-950/8" />
 
               <div className="mt-5 flex flex-wrap gap-2">
                 {Array.from({ length: 3 }).map((__, badgeIndex) => (
                   <Skeleton
                     key={badgeIndex}
-                    className="h-6 w-20 rounded-none bg-zinc-950/8"
+                    className="h-6 w-20 rounded-sm bg-zinc-950/8"
                   />
                 ))}
               </div>
 
               <div className="mt-auto flex items-center justify-between border-t border-zinc-950/8 pt-4">
-                <Skeleton className="h-4 w-20 rounded-none bg-zinc-950/8" />
-                <Skeleton className="h-4 w-28 rounded-none bg-zinc-950/8" />
+                <Skeleton className="h-4 w-20 rounded-sm bg-zinc-950/8" />
+                <Skeleton className="h-4 w-28 rounded-sm bg-zinc-950/8" />
               </div>
             </div>
           ))}

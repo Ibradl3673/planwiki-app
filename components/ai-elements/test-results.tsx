@@ -141,7 +141,7 @@ export const TestResults = ({
   return (
     <TestResultsContext.Provider value={contextValue}>
       <div
-        className={cn("rounded-lg border bg-background", className)}
+        className={cn("rounded-none border bg-background", className)}
         {...props}
       >
         {children ??
@@ -256,7 +256,7 @@ export const TestSuite = ({
 
   return (
     <TestSuiteContext.Provider value={contextValue}>
-      <Collapsible className={cn("rounded-lg border", className)} {...props}>
+      <Collapsible className={cn("rounded-none border", className)} {...props}>
         {children}
       </Collapsible>
     </TestSuiteContext.Provider>
@@ -450,7 +450,7 @@ export const TestError = ({
 }: TestErrorProps) => (
   <div
     className={cn(
-      "mt-2 rounded-md bg-red-50 p-3 dark:bg-red-900/20",
+      "mt-2 rounded-none bg-red-50 p-3 dark:bg-red-900/20",
       className
     )}
     {...props}

@@ -98,6 +98,47 @@ export const onboarding = pgTable(
   ],
 );
 
+export const apiKeys = pgTable("api_keys", {
+  id: uuid("id").defaultRandom().primaryKey(),
+
+  userId: text("user_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "cascade" }),
+
+  name: text("name").notNull(),
+
+  apiKey: text("api_key")
+    .notNull()
+    .unique()
+    .default(sql`'pw_live_' || gen_random_uuid()::text`),
+
+  allowedWorkspaceIds: jsonb("allowed_workspace_ids")
+    .$type<string[]>()
+    .notNull()
+    .default([]),
+
+  status: text("status").notNull().default("active"), // active | revoked
+
+  lastUsedAt: timestamp("last_used_at", { withTimezone: true }),
+
+  createdAt: timestamp("created_at", { withTimezone: true })
+    .notNull()
+    .defaultNow(),
+},
+  (table) => [
+    index("api_keys_user_id_idx").on(table.userId),
+    index("api_keys_api_key_idx").on(table.apiKey),
+    check(
+      "api_keys_status_check",
+      sql`${table.status} = ANY (ARRAY['active'::text, 'revoked'::text])`,
+    ),
+    check(
+      "api_keys_api_key_check",
+      sql`${table.apiKey} LIKE 'pw_live_%'`,
+    ),
+  ],
+);
+
 export const workspacesRelations = relations(workspaces, ({ one, many }) => ({
   user: one(user, {
     fields: [workspaces.userId],
@@ -116,6 +157,13 @@ export const messagesRelations = relations(messages, ({ one }) => ({
 export const onboardingRelations = relations(onboarding, ({ one }) => ({
   user: one(user, {
     fields: [onboarding.userId],
+    references: [user.id],
+  }),
+}));
+
+export const apiKeysRelations = relations(apiKeys, ({ one }) => ({
+  user: one(user, {
+    fields: [apiKeys.userId],
     references: [user.id],
   }),
 }));

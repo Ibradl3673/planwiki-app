@@ -66,7 +66,7 @@ export function WorkspaceShareControls({
 
   return (
     <div className="flex w-full flex-col gap-2 self-start justify-self-start sm:flex-row sm:items-center md:w-auto md:justify-self-end">
-      <div className="flex h-10 items-center justify-between border border-zinc-950/10 bg-[#f7f2ea] px-3 sm:min-w-36 sm:justify-start sm:gap-3">
+      <div className="flex h-10 items-center justify-between rounded-sm border border-zinc-950/10 bg-[#f7f2ea] px-3 sm:min-w-36 sm:justify-start sm:gap-3">
         <span className="text-xs uppercase tracking-[0.2em] text-zinc-600">
           Public
         </span>
@@ -82,7 +82,7 @@ export function WorkspaceShareControls({
         type="button"
         onClick={() => void handleCopy()}
         disabled={!hasShared || setWorkspaceVisibility.isPending}
-        className="h-10 w-full rounded-none border-zinc-950 bg-zinc-950 px-4 text-[#f6f1e8] hover:bg-zinc-800 md:w-auto"
+        className="h-10 w-full rounded-sm border-zinc-950 bg-zinc-950 px-4 text-[#f6f1e8] hover:bg-zinc-800 md:w-auto"
       >
         <span>Copy link</span>
         <Share2 className="size-4" />

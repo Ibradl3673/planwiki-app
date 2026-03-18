@@ -10,14 +10,14 @@ export default function WorkspaceDetailLoading() {
             <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-500">
               Workspace overview
             </p>
-            <Skeleton className="mt-3 h-10 w-full max-w-3xl rounded-none bg-zinc-950/8 sm:h-12 md:h-16" />
-            <Skeleton className="mt-4 h-5 w-full max-w-2xl rounded-none bg-zinc-950/8" />
-            <Skeleton className="mt-2 h-5 w-5/6 max-w-xl rounded-none bg-zinc-950/8" />
-            <Skeleton className="mt-3 h-3 w-28 rounded-none bg-zinc-950/8" />
+            <Skeleton className="mt-3 h-10 w-full max-w-3xl rounded-sm bg-zinc-950/8 sm:h-12 md:h-16" />
+            <Skeleton className="mt-4 h-5 w-full max-w-2xl rounded-sm bg-zinc-950/8" />
+            <Skeleton className="mt-2 h-5 w-5/6 max-w-xl rounded-sm bg-zinc-950/8" />
+            <Skeleton className="mt-3 h-3 w-28 rounded-sm bg-zinc-950/8" />
 
             <div className="mt-auto flex flex-col gap-2 pt-6 lg:flex-row lg:items-center lg:justify-end">
-              <Skeleton className="h-10 w-full rounded-none bg-zinc-950/8 lg:w-40" />
-              <Skeleton className="h-10 w-full rounded-none bg-zinc-950/8 lg:w-40" />
+              <Skeleton className="h-10 w-full rounded-sm bg-zinc-950/8 lg:w-40" />
+              <Skeleton className="h-10 w-full rounded-sm bg-zinc-950/8 lg:w-40" />
             </div>
           </div>
         </div>

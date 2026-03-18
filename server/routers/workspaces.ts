@@ -274,13 +274,7 @@ export const workspacesRouter = router({
     .input(
       z.object({
         workspaceId: z.string().uuid(),
-        text: z
-          .string()
-          .trim()
-          .min(
-            50,
-            "Your plan is too short. Paste more detail before continuing.",
-          ),
+        text: z.string().trim().min(1, "Describe the update before continuing."),
         source: z.string().optional(),
       }),
     )

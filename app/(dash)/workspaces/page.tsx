@@ -57,7 +57,7 @@ export default async function WorkspacesPage() {
                   <Link
                     key={workspace.id}
                     href={`/workspaces/${workspace.slug}`}
-                    className="group flex h-full min-h-[280px] flex-col border border-zinc-950/10 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-950 md:min-h-[320px] md:p-6"
+                    className="group flex h-full min-h-[280px] flex-col rounded-sm border border-zinc-950/10 bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-zinc-950 md:min-h-[320px] md:p-6"
                   >
                     <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
                       <div>
@@ -97,7 +97,7 @@ export default async function WorkspacesPage() {
               })}
             </div>
           ) : (
-            <div className="border border-zinc-950/10 bg-white p-6 md:p-8">
+            <div className="rounded-sm border border-zinc-950/10 bg-white p-6 md:p-8">
               <p className="text-lg font-medium tracking-[-0.03em] text-zinc-950">
                 No workspaces yet
               </p>

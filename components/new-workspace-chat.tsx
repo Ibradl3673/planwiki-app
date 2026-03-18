@@ -110,8 +110,8 @@ export function NewWorkspaceChat() {
             </p>
           </div>
 
-          <div className="mt-8 border border-zinc-950/10 bg-[#f7f2ea] p-4 md:mt-10 md:p-5">
-            <div className="border border-zinc-950/10 bg-white p-3">
+          <div className="mt-8 rounded-sm border border-zinc-950/10 bg-[#f7f2ea] p-4 md:mt-10 md:p-5">
+            <div className="rounded-sm border border-zinc-950/10 bg-white p-3">
               <Textarea
                 ref={textareaRef}
                 value={input}
@@ -129,7 +129,7 @@ export function NewWorkspaceChat() {
                 }}
                 onKeyDown={handleKeyDown}
                 placeholder="Paste the plan you already have."
-                className="min-h-24 resize-none rounded-none border-none bg-transparent px-0 py-0 text-base leading-7 text-zinc-800 shadow-none focus-visible:border-none focus-visible:ring-0 md:text-[15px]"
+                className="min-h-24 resize-none rounded-sm border-none bg-transparent px-0 py-0 text-base leading-7 text-zinc-800 shadow-none focus-visible:border-none focus-visible:ring-0 md:text-[15px]"
                 aria-label="Workspace chat input"
                 disabled={phase === "loading"}
               />
@@ -154,7 +154,7 @@ export function NewWorkspaceChat() {
                   type="button"
                   onClick={() => void handleSubmit()}
                   disabled={!canSubmit}
-                  className="h-11 w-full rounded-none border-zinc-950 bg-zinc-950 px-4 text-[#f6f1e8] hover:bg-zinc-800 sm:w-auto"
+                  className="h-11 w-full rounded-sm border-zinc-950 bg-zinc-950 px-4 text-[#f6f1e8] hover:bg-zinc-800 sm:w-auto"
                 >
                   {phase === "loading" ? "Generating..." : "Generate Workspace"}
                   <HugeiconsIcon

@@ -62,6 +62,12 @@ const mainNav = [
     icon: PencilEdit02Icon,
     match: (pathname: string) => pathname === "/new",
   },
+  {
+    title: "Agents",
+    href: "/agents",
+    icon: Edit02Icon,
+    match: (pathname: string) => pathname === "/agents",
+  },
 ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -171,7 +177,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           }
         }}
       >
-        <DialogContent className="rounded-none border border-zinc-950/10 bg-[#f6f1e8] p-0 shadow-none ring-0">
+        <DialogContent className="rounded-sm border border-zinc-950/10 bg-[#f6f1e8] p-0 shadow-none ring-0">
           <DialogHeader className="border-b border-zinc-950/10 px-5 py-5">
             <DialogTitle className="text-lg font-semibold tracking-[-0.03em] text-zinc-950">
               Rename workspace
@@ -190,7 +196,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 }
               }}
               placeholder="Workspace title"
-              className="h-11 rounded-none border-zinc-950/10 bg-white shadow-none"
+              className="h-11 rounded-sm border-zinc-950/10 bg-white shadow-none"
             />
           </div>
           <DialogFooter className="border-t border-zinc-950/10 px-5 py-4">
@@ -201,7 +207,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 setWorkspaceToRename(null);
                 setNextTitle("");
               }}
-              className="rounded-none border-zinc-950/15 bg-white px-4 text-zinc-700 shadow-none hover:bg-[#f7f2ea]"
+              className="rounded-sm border-zinc-950/15 bg-white px-4 text-zinc-700 shadow-none hover:bg-[#f7f2ea]"
             >
               Cancel
             </Button>
@@ -209,7 +215,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               type="button"
               onClick={() => void handleRenameConfirm()}
               disabled={!nextTitle.trim() || renameWorkspace.isPending}
-              className="rounded-none border-zinc-950 bg-zinc-950 px-4 text-[#f6f1e8] hover:bg-zinc-800"
+              className="rounded-sm border-zinc-950 bg-zinc-950 px-4 text-[#f6f1e8] hover:bg-zinc-800"
             >
               {renameWorkspace.isPending ? "Saving..." : "Save"}
             </Button>
@@ -225,7 +231,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           }
         }}
       >
-        <DialogContent className="rounded-none border border-zinc-950/10 bg-[#f6f1e8] p-0 shadow-none ring-0">
+        <DialogContent className="rounded-sm border border-zinc-950/10 bg-[#f6f1e8] p-0 shadow-none ring-0">
           <DialogHeader className="px-5 py-5">
             <DialogTitle className="text-lg font-semibold tracking-[-0.03em] text-zinc-950">
               Delete workspace
@@ -239,7 +245,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               type="button"
               variant="outline"
               onClick={() => setWorkspaceToDelete(null)}
-              className="rounded-none border-zinc-950/15 bg-white px-4 text-zinc-700 shadow-none hover:bg-[#f7f2ea]"
+              className="rounded-sm border-zinc-950/15 bg-white px-4 text-zinc-700 shadow-none hover:bg-[#f7f2ea]"
             >
               Cancel
             </Button>
@@ -247,7 +253,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               type="button"
               onClick={() => void handleDeleteConfirm()}
               disabled={deleteWorkspace.isPending}
-              className="rounded-none border border-red-700 bg-red-700 px-4 text-white hover:bg-red-800"
+              className="rounded-sm border border-red-700 bg-red-700 px-4 text-white hover:bg-red-800"
             >
               {deleteWorkspace.isPending ? "Deleting..." : "Delete"}
             </Button>
@@ -354,7 +360,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                 ? Array.from({ length: 5 }).map((_, index) => (
                     <SidebarMenuItem key={index}>
                       <div className="px-3 py-1">
-                        <Skeleton className="h-10 rounded-none bg-zinc-950/8" />
+                        <Skeleton className="h-10 rounded-sm bg-zinc-950/8" />
                       </div>
                     </SidebarMenuItem>
                   ))

@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import { toast } from "sonner"
 
-import { WorkspaceUpdateSheet } from "@/components/workspace-update-sheet"
+import { WorkspaceChatSidebar } from "@/components/workspace-chat-sidebar"
 import { WorkspaceShareControls } from "@/components/workspace-share-controls"
 import { Button } from "@/components/ui/button"
 import {
@@ -192,19 +192,34 @@ export function WorkspaceCanvas({
       )
       setSummary(result.data.summary)
       toast.success("Workspace updated.")
+      setIsUpdateSheetOpen(false)
     } finally {
       setIsRefreshingWidgets(false)
     }
   }
 
+  // Keyboard shortcut to toggle chat
+  useEffect(() => {
+    if (!canUpdate) return
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.metaKey && e.key === "i") {
+        e.preventDefault()
+        setIsUpdateSheetOpen((prev) => !prev)
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown)
+    return () => document.removeEventListener("keydown", handleKeyDown)
+  }, [canUpdate])
+
   return (
-    <section className="px-4 py-6 md:px-6 md:py-8">
-      <div className="mx-auto w-full max-w-6xl">
-        <div className="grid gap-5 border border-zinc-950/10 bg-white/65 p-5 shadow-none backdrop-blur-sm md:p-8">
-          <div className="flex min-h-[220px] flex-col">
-            <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-500">
-              Workspace overview
-            </p>
+    <div className="flex h-screen w-full overflow-hidden bg-[#fbf9f6]">
+      <section className="flex-1 overflow-y-auto px-4 py-6 md:px-6 md:py-8">
+        <div className="mx-auto w-full max-w-6xl">
+          <div className="grid gap-5 rounded-sm border border-zinc-950/10 bg-white/65 p-5 shadow-none backdrop-blur-sm md:p-8">
+            <div className="flex min-h-[220px] flex-col">
+              <p className="text-[11px] uppercase tracking-[0.28em] text-zinc-500">
+                Workspace overview
+              </p>
             <h2 className="mt-3 max-w-3xl text-3xl font-semibold tracking-[-0.05em] text-zinc-950 sm:text-4xl md:text-6xl">
               {workspace.title}
             </h2>
@@ -219,16 +234,16 @@ export function WorkspaceCanvas({
               {workspace.versions.length > 1 ? (
                 <Select value={activeVersionId} onValueChange={setActiveVersionId}>
                   <SelectTrigger
-                    className="h-10 w-full rounded-none border-zinc-950/10 bg-[#f7f2ea] px-3 text-zinc-950 shadow-none lg:min-w-40 lg:w-auto"
+                    className="h-10 w-full rounded-sm border-zinc-950/10 bg-[#f7f2ea] px-3 text-zinc-950 shadow-none lg:min-w-40 lg:w-auto"
                   >
                     <SelectValue placeholder="Select version" />
                   </SelectTrigger>
-                  <SelectContent className="rounded-none border border-zinc-950/10 bg-[#f6f1e8] shadow-none ring-0">
+                  <SelectContent className="rounded-sm border border-zinc-950/10 bg-[#f6f1e8] shadow-none ring-0">
                     {workspace.versions.map((version, index) => (
                       <SelectItem
                         key={version.id}
                         value={version.id}
-                        className="rounded-none"
+                        className="rounded-sm"
                       >
                         {index === workspace.versions.length - 1
                           ? `${version.label} - Latest`
@@ -244,7 +259,7 @@ export function WorkspaceCanvas({
                   type="button"
                   variant="outline"
                   onClick={() => setIsUpdateSheetOpen(true)}
-                  className="h-10 w-full rounded-none border-zinc-950/15 bg-[#f7f2ea] px-4 text-zinc-700 shadow-none hover:bg-white lg:w-auto"
+                  className="h-10 w-full rounded-sm border-zinc-950/15 bg-[#f7f2ea] px-4 text-zinc-700 shadow-none hover:bg-white lg:w-auto"
                 >
                   Update workspace
                 </Button>
@@ -274,15 +289,16 @@ export function WorkspaceCanvas({
           )}
         </div>
       </div>
+      </section>
 
       {canUpdate ? (
-        <WorkspaceUpdateSheet
+        <WorkspaceChatSidebar
           isOpen={isUpdateSheetOpen}
           isPending={updateWorkspace.isPending}
-          onOpenChange={setIsUpdateSheetOpen}
+          onClose={() => setIsUpdateSheetOpen(false)}
           onSubmit={handleWorkspaceUpdate}
         />
       ) : null}
-    </section>
+    </div>
   )
 }

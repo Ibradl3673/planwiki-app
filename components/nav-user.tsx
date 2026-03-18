@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import {
   Logout01Icon,
   MoreHorizontalIcon,
+  Setting07Icon,
   Settings02Icon,
   UserCircleIcon,
 } from "@hugeicons/core-free-icons";
@@ -137,6 +138,12 @@ export function NavUser() {
                   <Link href="/new" className="flex items-center gap-2">
                     <HugeiconsIcon icon={Settings02Icon} className="size-4" />
                     Preferences
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/agents" className="flex items-center gap-2">
+                    <HugeiconsIcon icon={Setting07Icon} className="size-4" />
+                    API Keys
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />

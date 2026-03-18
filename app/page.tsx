@@ -13,33 +13,31 @@ import PricingCards from "@/components/ui/pricing-cards";
 
 const demoExamples = [
   {
-    id: "coding",
-    label: "Coding Plan",
-    title: "Axerr MVP Coding Plan",
+    id: "roadmap",
+    label: "Roadmap",
+    title: "Q3 Collaboration Workspace Rollout",
     plan: [
-      "Day 1 — Setup: Next.js, Tailwind, shadcn/ui, tRPC, Node, Postgres, Drizzle ORM.",
-      "Day 2 — Workspace system: create workspace, list workspaces, workspace view, users/workspaces/plans/widgets tables.",
-      "Day 3 — Plan input: paste AI-generated plan and store it in the database.",
-      "Day 4 — Plan parser: convert text into budget, task list, and timeline sections.",
-      "Day 5 — Widget generator: create budget, task, and timeline widgets dynamically.",
-      "Day 6 — Editing + persistence: edit widgets, add tasks, modify budgets, save changes.",
-      "Day 7 — Sharing: generate a public link so users can share and publish plans.",
+      "Week 1 — Align product, design, and engineering on the workspace collaboration problem and target users.",
+      "Week 2 — Finalize the PRD, define agent workflows, and capture success metrics for activation and adoption.",
+      "Week 3 — Break the rollout into onboarding, permissions, widget execution, and agent connectivity milestones.",
+      "Week 4 — Ship the first release to an internal beta, collect issues, and document follow-up work.",
+      "Week 5 — Prepare launch messaging, customer feedback loops, and post-launch iteration rituals.",
     ],
     widget: {
-      title: "MVP Build Roadmap",
-      subtitle: "",
+      title: "Workspace Rollout Board",
+      subtitle: "A roadmap converted into execution blocks for product teams and agents.",
       content: (
         <div className="grid gap-3 md:grid-cols-2">
           {[
-            ["Day 1", "Project setup", "Done"],
-            ["Day 2", "Workspace system", "In progress"],
-            ["Day 3", "Plan input", "Ready"],
-            ["Day 4", "Plan parser", "Queued"],
+            ["Sprint 1", "Problem framing", "Done"],
+            ["Sprint 2", "PRD and metrics", "In progress"],
+            ["Sprint 3", "Agent workflows", "Ready"],
+            ["Sprint 4", "Beta launch", "Queued"],
           ].map(([lane, task, state]) => (
             <button
               key={task}
               type="button"
-              className="cursor-pointer border border-zinc-950/10 bg-white p-4 text-left transition-all hover:-translate-y-0.5 hover:border-zinc-950 hover:shadow-[4px_4px_0_0_rgba(24,24,27,0.12)]"
+              className="cursor-pointer rounded-sm border border-zinc-950/10 bg-white p-4 text-left transition-all hover:-translate-y-0.5 hover:border-zinc-950 hover:shadow-[4px_4px_0_0_rgba(24,24,27,0.12)]"
             >
               <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
                 {lane}
@@ -53,45 +51,46 @@ const demoExamples = [
     },
   },
   {
-    id: "budget",
-    label: "Budget",
-    title: "Axerr Budget Plan",
+    id: "spec",
+    label: "PRD",
+    title: "AI Agent Handoff Product Spec",
     plan: [
-      "Initial budget: $1,200.",
-      "Infrastructure: Vercel $20/month, Neon/Postgres $15/month, Storage $10/month.",
-      "Domain + branding: Domain $12/year, logo tools $20, UI assets $50.",
-      "AI processing: 500 requests/month, estimated $50–100/month.",
-      "Marketing budget: $200. Miscellaneous tools/integrations/monitoring: $150.",
-      "Estimated startup cost: ~$577 initial.",
+      "Goal: give product teams a shared workspace where agents can pick up scoped execution work safely.",
+      "User flow: paste a long plan, detect structure, convert it into widgets, assign follow-up actions, and share it with teammates.",
+      "Key requirements: versioned updates, editable widgets, public/private sharing, and agent connection setup.",
+      "Risks: unclear ownership, low trust in AI output, and weak visibility across roadmap execution.",
+      "Success metrics: time to first workspace, number of active widgets, and agent-assisted task completion.",
     ],
     widget: {
-      title: "Budget Breakdown",
-      subtitle: "Startup budget structured automatically",
+      title: "Spec Breakdown",
+      subtitle: "Requirements, risks, and outcomes split into reviewable sections.",
       content: (
         <div className="space-y-3 text-sm text-zinc-700">
           <div className="flex items-end justify-between border-b border-zinc-900/10 pb-3">
             <div>
               <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
-                Estimated startup cost
+                Primary outcome
               </p>
-              <p className="mt-1 text-2xl font-semibold text-zinc-950">$577</p>
+              <p className="mt-1 text-2xl font-semibold text-zinc-950">
+                Agent-ready execution
+              </p>
             </div>
             <div className="text-right">
               <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
-                Initial budget
+                Shared with
               </p>
               <p className="mt-1 text-lg font-medium text-emerald-700">
-                $1,200
+                Shared with product
               </p>
             </div>
           </div>
           <div className="space-y-2">
             {[
-              ["Infrastructure", "$45/mo"],
-              ["Domain + branding", "$82"],
-              ["AI processing", "$100"],
-              ["Marketing", "$200"],
-              ["Misc", "$150"],
+              ["Problem statement", "Defined"],
+              ["Success metrics", "Tracked"],
+              ["Agent workflow", "Mapped"],
+              ["Risks", "Reviewed"],
+              ["Rollout", "Sequenced"],
             ].map(([label, value]) => (
               <button
                 key={label}
@@ -109,33 +108,31 @@ const demoExamples = [
   },
   {
     id: "launch",
-    label: "Launch Plan",
-    title: "Axerr Startup Launch Plan",
+    label: "Launch",
+    title: "Product Launch Coordination Plan",
     plan: [
-      "Phase 1 — Idea validation: define the core problem, target indie hackers, startup founders, PMs, and students, then validate on Reddit, X, and Indie Hackers.",
-      "Create a waitlist landing page with product description, email signup, and demo screenshots.",
-      "Phase 2 — Product definition: Plan to structured workspace, interactive widgets, editable sections, shareable plans.",
-      "Phase 3 — Build MVP: workspace creation, AI plan input, parser, widget generator, editing, and shareable page.",
-      "Phase 4 — Distribution: launch on Product Hunt, Reddit, and Twitter/X.",
-      "Phase 5 + 6 — Reach first 100 users and iterate weekly from feedback.",
+      "Phase 1 — Lock scope, confirm launch owner, and define the support plan for the first rollout window.",
+      "Phase 2 — Coordinate release notes, marketing copy, internal enablement, and agent operating instructions.",
+      "Phase 3 — Track launch blockers, feedback, and follow-up items in one shared execution workspace.",
+      "Phase 4 — Review outcomes with the team and feed learnings back into the next roadmap cycle.",
     ],
     widget: {
-      title: "Axerr Launch Workspace",
-      subtitle: "Startup launch phases turned into a workspace",
+      title: "Launch Coordination Workspace",
+      subtitle: "Cross-functional launch steps made visible for teams and agents.",
       content: (
         <div className="space-y-3 text-sm text-zinc-700">
           {[
-            ["Day 1", "Idea validation", true],
-            ["Day 1", "Product definition", true],
-            ["Week 1", "Build MVP", false],
-            ["Launch", "Distribution", false],
+            ["Phase 1", "Scope lock", true],
+            ["Phase 2", "Enablement", true],
+            ["Phase 3", "Launch monitoring", false],
+            ["Phase 4", "Post-launch review", false],
           ].map(([day, task, done]) => (
             <button
               key={String(day)}
               type="button"
               className="grid w-full cursor-pointer grid-cols-[auto_1fr_auto] items-center gap-3 border-b border-zinc-900/10 pb-3 text-left transition-colors hover:bg-white/60 last:border-b-0 last:pb-0"
             >
-              <span className="border border-zinc-950 bg-[#f6f1e8] px-2 py-1 text-[10px] uppercase tracking-[0.24em] text-zinc-600">
+              <span className="rounded-sm border border-zinc-950 bg-[#f6f1e8] px-2 py-1 text-[10px] uppercase tracking-[0.24em] text-zinc-600">
                 {day}
               </span>
               <span
@@ -157,22 +154,22 @@ const demoExamples = [
 ];
 
 const features = [
-  "Automatic plan structuring",
-  "Interactive widgets",
-  "Editable blocks",
-  "Shareable workspaces",
-  "Publish plans as pages",
+  "Roadmaps into widgets",
+  "PRDs into execution views",
+  "Agent connection setup",
+  "Shared team workspaces",
+  "Open source and self-hostable",
 ];
 
 export default function LandingPage() {
   const [showHeader, setShowHeader] = useState(true);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeDemo, setActiveDemo] = useState(0);
-  const [selectedCodingTask, setSelectedCodingTask] =
-    useState("Workspace system");
-  const [selectedBudgetCategory, setSelectedBudgetCategory] =
-    useState("Infrastructure");
-  const [selectedLaunchStep, setSelectedLaunchStep] = useState("Build MVP");
+  const [selectedRoadmapTask, setSelectedRoadmapTask] =
+    useState("PRD and metrics");
+  const [selectedSpecSection, setSelectedSpecSection] =
+    useState("Success metrics");
+  const [selectedLaunchStep, setSelectedLaunchStep] = useState("Launch monitoring");
 
   useEffect(() => {
     let lastScrollY = 0;
@@ -210,12 +207,13 @@ export default function LandingPage() {
         <section className="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 pb-10 pt-28 md:px-6 md:pb-12 md:pt-36">
           <div className="max-w-4xl">
             <h1 className="max-w-5xl text-5xl font-semibold tracking-[-0.05em] text-zinc-950 sm:text-6xl md:text-7xl lg:text-8xl">
-              Turn AI Plans into Interactive Workspaces
+              AI-Native Workspace for Agents and Product Teams
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-8 text-zinc-700 md:text-xl">
-              PlanWiki converts AI-generated plans from ChatGPT, Claude, or
-              Gemini, DeepSeek, and other AI models into interactive widgets you
-              can visualize, edit, and share.
+              PlanWiki is an open source workspace for product teams and AI
+              agents. Paste long AI-generated plans, roadmaps, or ideas to turn
+              them into interactive widgets your team and agents can execute
+              together.
             </p>
           </div>
 
@@ -223,7 +221,7 @@ export default function LandingPage() {
             <Button
               asChild
               size="lg"
-              className="h-12 rounded-none border border-zinc-950 bg-zinc-950 px-8 text-base text-[#f6f1e8] hover:bg-zinc-800"
+              className="h-12 rounded-sm border border-zinc-950 bg-zinc-950 px-8 text-base text-[#f6f1e8] hover:bg-zinc-800"
             >
               <Link href="/login">
                 Get Started for Free
@@ -239,20 +237,20 @@ export default function LandingPage() {
             {[
               [
                 "Input",
-                "Paste raw AI output from ChatGPT, Claude, Gemini, DeepSeek, or any other model.",
+                "Paste long product plans, PRDs, roadmaps, launch docs, or messy AI-generated strategy notes.",
               ],
               [
                 "Transform",
-                "PlanWiki identifies steps, lists, dependencies, and data patterns.",
+                "PlanWiki breaks them into widgets, execution views, and reviewable sections your team can actually use.",
               ],
               [
                 "Operate",
-                "Your plan becomes a workspace you can actually use and share.",
+                "Your workspace becomes a shared operating surface for product teams and connected AI agents.",
               ],
             ].map(([title, copy]) => (
               <div
                 key={title}
-                className="border border-zinc-950/10 bg-white/70 p-5 backdrop-blur-sm"
+                className="rounded-sm border border-zinc-950/10 bg-white/70 p-5 backdrop-blur-sm"
               >
                 <p className="text-xs uppercase tracking-[0.28em] text-zinc-500">
                   {title}
@@ -264,15 +262,15 @@ export default function LandingPage() {
         </section>
 
         <section className="mx-auto max-w-7xl px-4 pb-6 md:px-6 md:pb-8">
-          <div className="border border-zinc-950/10 bg-white/65 p-6 backdrop-blur-sm md:p-8">
+          <div className="rounded-sm border border-zinc-950/10 bg-white/65 p-6 backdrop-blur-sm md:p-8">
             <div className="grid gap-6 md:grid-cols-[0.75fr_1.25fr] md:items-center">
               <div>
                 <p className="text-xs uppercase tracking-[0.32em] text-zinc-500">
-                  Works with any model
+                  Connect your agents
                 </p>
                 <p className="mt-3 max-w-md text-lg leading-8 text-zinc-700">
-                  Bring in plans from the tools you already use. PlanWiki is
-                  built for messy AI output, not one specific model.
+                  Bring plans from any model, then connect the agents and tools
+                  that help your team move the work forward inside one workspace.
                 </p>
               </div>
               <ModelMarquee />
@@ -284,12 +282,12 @@ export default function LandingPage() {
           <div className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-16">
             <div className="max-w-3xl">
               <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] md:text-6xl">
-                See what your plans become
+                Paste the plan. Run the workspace.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-700">
-                Stop getting lost in long text plans. PlanWiki turns raw AI
-                output into structured blocks you can inspect, edit, and use
-                immediately.
+                Long product plans are useful until nobody can execute them.
+                PlanWiki turns them into structured blocks your team and agents
+                can inspect, update, and act on together.
               </p>
             </div>
 
@@ -311,14 +309,14 @@ export default function LandingPage() {
             </div>
 
             <div className="mt-8 grid gap-4 xl:grid-cols-[1fr_auto_1fr] xl:items-center">
-              <article className="border border-zinc-950/10 bg-[#f7f2ea] p-5 md:p-8">
+              <article className="rounded-sm border border-zinc-950/10 bg-[#f7f2ea] p-5 md:p-8">
                 <p className="text-xs uppercase tracking-[0.32em] text-zinc-500">
                   From this
                 </p>
                 <h3 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-zinc-950">
                   {currentDemo.title}
                 </h3>
-                <div className="mt-6 border border-zinc-950/10 bg-white p-5 font-mono text-sm leading-7 text-zinc-700">
+                <div className="mt-6 rounded-sm border border-zinc-950/10 bg-white p-5 font-mono text-sm leading-7 text-zinc-700">
                   <p className="mb-4 text-xs uppercase tracking-[0.24em] text-zinc-500">
                     raw ai output
                   </p>
@@ -334,7 +332,7 @@ export default function LandingPage() {
               </article>
 
               <div className="flex items-center justify-center py-1 xl:py-0">
-                <div className="flex h-14 w-14 items-center justify-center border border-zinc-950 bg-zinc-950 text-white md:h-16 md:w-16">
+                <div className="flex h-14 w-14 items-center justify-center rounded-sm border border-zinc-950 bg-zinc-950 text-white md:h-16 md:w-16">
                   <HugeiconsIcon
                     icon={ArrowRight}
                     className="h-7 w-7 md:h-8 md:w-8"
@@ -343,7 +341,7 @@ export default function LandingPage() {
               </div>
 
               <article
-                className="overflow-hidden border border-zinc-950/10 bg-[#f7f2ea] p-5 text-zinc-950 md:p-8"
+                className="overflow-hidden rounded-sm border border-zinc-950/10 bg-[#f7f2ea] p-5 text-zinc-950 md:p-8"
               >
                 <p className="text-xs uppercase tracking-[0.32em] text-zinc-600">
                   To this
@@ -356,7 +354,7 @@ export default function LandingPage() {
                     {currentDemo.widget.subtitle}
                   </p>
                 ) : null}
-                <div className="mt-6 border border-zinc-950/10 bg-white p-4 md:p-5">
+                <div className="mt-6 rounded-sm border border-zinc-950/10 bg-white p-4 md:p-5">
                   {activeDemo === 0 ? (
                     <div className="grid gap-3 md:grid-cols-2">
                       {[
@@ -365,14 +363,14 @@ export default function LandingPage() {
                         ["Day 4", "Plan parser", "Blocked"],
                         ["Day 7", "Sharing", "Queued"],
                       ].map(([lane, task, state]) => {
-                        const isSelected = selectedCodingTask === task;
+                        const isSelected = selectedRoadmapTask === task;
 
                         return (
                           <button
                             key={task}
                             type="button"
-                            onClick={() => setSelectedCodingTask(String(task))}
-                            className={`cursor-pointer border p-4 text-left transition-all hover:-translate-y-0.5 ${
+                            onClick={() => setSelectedRoadmapTask(String(task))}
+                            className={`cursor-pointer rounded-sm border p-4 text-left transition-all hover:-translate-y-0.5 ${
                               isSelected
                                 ? "border-emerald-700 bg-emerald-50"
                                 : "border-zinc-950/10 hover:border-zinc-950 hover:shadow-[4px_4px_0_0_rgba(24,24,27,0.12)]"
@@ -388,7 +386,7 @@ export default function LandingPage() {
                                 </p>
                               </div>
                               <span
-                                className={`mt-1 h-3 w-3 border ${
+                                className={`mt-1 h-3 w-3 rounded-sm border ${
                                   isSelected
                                     ? "border-emerald-700 bg-emerald-700"
                                     : "border-zinc-950 bg-transparent"
@@ -407,10 +405,10 @@ export default function LandingPage() {
                       <div className="flex items-end justify-between border-b border-zinc-900/10 pb-3">
                         <div>
                           <p className="text-xs uppercase tracking-[0.24em] text-zinc-500">
-                            Estimated startup cost
+                            Primary outcome
                           </p>
                           <p className="mt-1 text-2xl font-semibold text-zinc-950">
-                            $577
+                            Agent-ready execution
                           </p>
                         </div>
                         <div className="text-right">
@@ -418,7 +416,7 @@ export default function LandingPage() {
                             Focus
                           </p>
                           <p className="mt-1 text-lg font-medium text-zinc-950">
-                            {selectedBudgetCategory}
+                            {selectedSpecSection}
                           </p>
                         </div>
                       </div>
@@ -430,16 +428,16 @@ export default function LandingPage() {
                           ["Marketing", "$200"],
                           ["Misc", "$150"],
                         ].map(([label, value]) => {
-                          const isSelected = selectedBudgetCategory === label;
+                          const isSelected = selectedSpecSection === label;
 
                           return (
                             <button
                               key={label}
                               type="button"
                               onClick={() =>
-                                setSelectedBudgetCategory(String(label))
+                                setSelectedSpecSection(String(label))
                               }
-                              className={`grid w-full cursor-pointer grid-cols-[1fr_auto] gap-3 border px-2 py-2 text-left transition-colors ${
+                            className={`grid w-full cursor-pointer grid-cols-[1fr_auto] gap-3 rounded-sm border px-2 py-2 text-left transition-colors ${
                                 isSelected
                                   ? "border-emerald-700 bg-emerald-700 text-white"
                                   : "border-transparent bg-white hover:border-zinc-950/10 hover:bg-zinc-50"
@@ -480,7 +478,7 @@ export default function LandingPage() {
                             }`}
                           >
                             <span
-                              className={`border px-2 py-1 text-[10px] uppercase tracking-[0.24em] ${
+                              className={`rounded-sm border px-2 py-1 text-[10px] uppercase tracking-[0.24em] ${
                                 isSelected
                                   ? "border-emerald-700 bg-emerald-700 text-white"
                                   : "border-zinc-950 bg-[#f6f1e8] text-zinc-600"
@@ -511,22 +509,23 @@ export default function LandingPage() {
               </article>
             </div>
 
-            <div className="mt-8 flex flex-col gap-4 border border-zinc-950/10 bg-[#f7f2ea] p-5 sm:flex-row sm:items-end sm:justify-between sm:gap-6 sm:p-6">
+            <div className="mt-8 flex flex-col gap-4 rounded-sm border border-zinc-950/10 bg-[#f7f2ea] p-5 sm:flex-row sm:items-end sm:justify-between sm:gap-6 sm:p-6">
               <div>
                 <p className="text-xs uppercase tracking-[0.32em] text-zinc-500">
                   Demo workspace
                 </p>
                 <p className="mt-3 max-w-sm text-lg leading-7 text-zinc-700">
-                  See a plan turn into a workspace you can actually use.
+                  See how a product development plan becomes a workspace your
+                  team and agents can execute together.
                 </p>
               </div>
               <Button
                 asChild
                 size="lg"
-                className="h-12 border border-zinc-950 bg-zinc-950 px-6 text-white hover:bg-zinc-800 rounded-none"
+                className="h-12 rounded-sm border border-zinc-950 bg-zinc-950 px-6 text-white hover:bg-zinc-800"
               >
                 <Link href="/login">
-                  Explore Demo Workspace
+                  Open Demo Workspace
                   <HugeiconsIcon
                     icon={ArrowRight}
                     className="ml-2 h-5 w-5 transition-transform group-hover/button:translate-x-1"
@@ -537,25 +536,25 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="features" className="mx-auto max-w-7xl px-4 py-20 md:px-6">
-          <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
-            <div>
-              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-zinc-950 md:text-5xl">
-                Structured enough to visualize, edit and share
-              </h2>
-            </div>
-            <div className="grid gap-px border border-zinc-950 bg-zinc-950 sm:grid-cols-2">
-              {features.map((feature) => (
-                <div
-                  key={feature}
-                  className={`bg-white p-5 text-lg text-zinc-900 ${
-                    feature === "Publish plans as pages" ? "sm:col-span-2" : ""
-                  }`}
-                >
-                  {feature}
-                </div>
-              ))}
-            </div>
+        <section id="features" className="mx-auto max-w-7xl px-4 py-14 md:px-6 md:py-16">
+          <div className="max-w-3xl">
+            <p className="text-xs uppercase tracking-[0.32em] text-zinc-500">
+              Features
+            </p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.05em] md:text-6xl">
+              Built for product development work
+            </h2>
+          </div>
+
+          <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+            {features.map((feature) => (
+              <div
+                key={feature}
+                className="rounded-sm border border-zinc-950/10 bg-white/70 p-5 text-base text-zinc-800 backdrop-blur-sm"
+              >
+                {feature}
+              </div>
+            ))}
           </div>
         </section>
 
@@ -563,12 +562,12 @@ export default function LandingPage() {
           <div className="grid gap-10 md:grid-cols-[0.75fr_1.25fr]">
             <div>
               <h2 className="mt-4 text-3xl font-semibold tracking-[-0.04em] text-zinc-950 md:text-5xl">
-                Choose the right plan for you
+                Choose the right plan for your team
               </h2>
               <p className="mt-5 max-w-md text-lg leading-8 text-zinc-700">
-                Every pasted input becomes a workspace. Pro adds higher
-                workspace limits, version history, and export tools for heavier
-                use.
+                Every pasted plan becomes a workspace. Use PlanWiki to align
+                product, design, engineering, and connected agents around the
+                same execution surface.
               </p>
             </div>
             <PricingCards />
@@ -583,20 +582,20 @@ export default function LandingPage() {
             <div className="grid gap-10 md:grid-cols-[0.9fr_1.1fr]">
               <div>
                 <h2 className="max-w-2xl text-3xl font-semibold tracking-[-0.04em] text-zinc-950 md:text-5xl">
-                  Built for AI Heavy Users
+                  Built for product teams working with AI
                 </h2>
                 <p className="mt-5 max-w-xl text-lg leading-8 text-zinc-700">
-                  For people already using ChatGPT, Claude, or Gemini to think
-                  through work and who need those plans to become usable.
+                  Use PlanWiki when your team already thinks with AI, but still
+                  needs a shared place to organize, review, and execute the work.
                 </p>
               </div>
               <div className="grid gap-px border border-zinc-950 bg-zinc-950">
                 {[
-                  "Startup execution plans",
-                  "Budget planning",
-                  "Project planning",
-                  "Study schedules",
-                  "Personal goal tracking",
+                  "Product roadmaps",
+                  "PRDs and specifications",
+                  "Launch coordination",
+                  "Backlog shaping",
+                  "Cross-functional planning",
                 ].map((item) => (
                   <div
                     key={item}
@@ -609,13 +608,13 @@ export default function LandingPage() {
             </div>
             <div className="mt-8 grid gap-4 md:grid-cols-3">
               {[
-                "People who already use AI to map out work before they execute",
-                "Teams collecting long AI plans that need structure before execution",
-                "Operators who want plans they can review, edit, and share without rewriting everything",
+                "Product teams collecting long AI plans that need structure before execution",
+                "Operators who want agents and humans working from the same source of truth",
+                "Teams that need workspaces they can review, edit, and share without rewriting everything",
               ].map((item) => (
                 <div
                   key={item}
-                  className="border border-zinc-950/10 bg-white p-5 text-base leading-7 text-zinc-900"
+                  className="rounded-sm border border-zinc-950/10 bg-white p-5 text-base leading-7 text-zinc-900"
                 >
                   {item}
                 </div>
@@ -628,7 +627,7 @@ export default function LandingPage() {
           id="open-source"
           className="mx-auto max-w-7xl px-4 py-20 md:px-6"
         >
-          <div className="grid gap-10 border border-zinc-950 bg-zinc-950 p-8 text-[#f6f1e8] md:grid-cols-[1fr_auto] md:p-10">
+          <div className="grid gap-10 rounded-sm border border-zinc-950 bg-zinc-950 p-8 text-[#f6f1e8] md:grid-cols-[1fr_auto] md:p-10">
             <div>
               <p className="text-xs uppercase tracking-[0.32em] text-zinc-500">
                 Open Source
@@ -637,8 +636,8 @@ export default function LandingPage() {
                 PlanWiki is open source.
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-zinc-300">
-                Inspect the code, contribute, and self host if needed. The
-                product stays transparent and adaptable.
+                Inspect the code, contribute improvements, and self-host if your
+                team needs full control over how workspaces and agents are set up.
               </p>
               <div className="mt-8 grid gap-3 text-sm uppercase tracking-[0.24em] text-zinc-400 sm:grid-cols-3">
                 <span>Inspect the code</span>
@@ -650,7 +649,7 @@ export default function LandingPage() {
               <Button
                 asChild
                 size="lg"
-                className="h-12 rounded-none border border-[#f6f1e8] bg-[#f6f1e8] px-6 text-zinc-950 hover:bg-zinc-200"
+                className="h-12 rounded-sm border border-[#f6f1e8] bg-[#f6f1e8] px-6 text-zinc-950 hover:bg-zinc-200"
               >
                 <Link
                   href="https://github.com/planwiki/planwiki-app"
@@ -664,7 +663,7 @@ export default function LandingPage() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="h-12 rounded-none border-[#f6f1e8] bg-transparent px-6 text-[#f6f1e8] hover:bg-white hover:text-zinc-950"
+                className="h-12 rounded-sm border-[#f6f1e8] bg-transparent px-6 text-[#f6f1e8] hover:bg-white hover:text-zinc-950"
               >
                 <Link
                   href="https://github.com/planwiki/planwiki-app#readme"
@@ -683,13 +682,13 @@ export default function LandingPage() {
           <div className="flex items-center gap-6">
             <Link
               href="/privacy"
-              className="hover:text-zinc-950 transition-colors"
+              className="transition-colors hover:text-zinc-950"
             >
               Privacy
             </Link>
             <Link
               href="/terms"
-              className="hover:text-zinc-950 transition-colors"
+              className="transition-colors hover:text-zinc-950"
             >
               Terms
             </Link>

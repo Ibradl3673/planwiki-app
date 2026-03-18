@@ -64,7 +64,7 @@ export default function LoginPage() {
               type="button"
               onClick={handleOAuthSignIn}
               disabled={isLoading}
-              className="rounded-none border border-zinc-950 bg-zinc-950 px-6 text-[#f6f1e8] hover:bg-zinc-800"
+              className="rounded-sm border border-zinc-950 bg-zinc-950 px-6 text-[#f6f1e8] hover:bg-zinc-800"
             >
               <svg className="size-4" viewBox="0 0 24 24" aria-hidden="true">
                 <path

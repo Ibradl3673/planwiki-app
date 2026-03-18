@@ -25,7 +25,7 @@ export function TableWidget({
   const activeRows = selectedTableRows.length ? selectedTableRows : (data.selectedRows ?? [])
 
   return (
-    <Card className="rounded-none border border-zinc-950/10 bg-white py-0 shadow-none">
+    <Card className="rounded-sm border border-zinc-950/10 bg-white py-0 shadow-none">
       <CardHeader className="border-b border-zinc-950/10 px-4 py-4 md:px-6 md:py-5">
         <CardDescription className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
           Structured reference

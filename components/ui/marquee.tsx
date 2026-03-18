@@ -1,7 +1,5 @@
 import { type ComponentPropsWithoutRef } from "react"
 
-import Image from "next/image"
-
 import { cn } from "@/lib/utils"
 
 interface MarqueeProps extends ComponentPropsWithoutRef<"div"> {
@@ -75,38 +73,33 @@ export function Marquee({
   )
 }
 
-const modelLogos = [
-  { name: "ChatGPT", domain: "openai.com" },
-  { name: "Claude", domain: "claude.ai" },
-  { name: "Gemini", domain: "google.com" },
-  { name: "DeepSeek", domain: "deepseek.com" },
-  { name: "Mistral", domain: "mistral.ai" },
-  { name: "Grok", domain: "grok.com" },
-  { name: "Perplexity", domain: "perplexity.ai" },
-  { name: "Meta AI", domain: "meta.ai" },
+const agentConnections = [
+  { label: "Cursor", detail: ".cursor/mcp.json" },
+  { label: "Codex", detail: "~/.codex/config.toml" },
+  { label: "Claude Code", detail: ".mcp.json" },
+  { label: "MCP Server", detail: "Shared workspace access" },
+  { label: "Product Team", detail: "One execution surface" },
+  { label: "Agent Tasks", detail: "Structured widgets" },
 ]
 
 export function ModelMarquee() {
   return (
-    <div className="relative overflow-hidden border border-zinc-950/10 bg-[#f6f1e8] py-4">
+    <div className="relative overflow-hidden rounded-sm border border-zinc-950/10 bg-[#f6f1e8] py-4">
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#f6f1e8] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#f6f1e8] to-transparent" />
       <Marquee pauseOnHover className="[--duration:28s] [--gap:1.5rem] py-1">
-        {modelLogos.map((model) => (
+        {agentConnections.map((item) => (
           <div
-            key={model.name}
-            className="flex min-w-[170px] items-center gap-4 border border-zinc-950/10 bg-white/90 px-4 py-3"
+            key={item.label}
+            className="flex min-w-[220px] flex-col gap-1 rounded-sm border border-zinc-950/10 bg-white/90 px-4 py-3"
           >
-            <Image
-              src={`https://img.logo.dev/${model.domain}?token=${process.env.NEXT_PUBLIC_LOGO_DEV_KEY}`}
-              alt={model.name}
-              width={112}
-              height={28}
-              className="h-7 w-auto object-contain"
-            />
-            <span className="text-sm font-medium uppercase tracking-[0.18em] text-zinc-700">
-              {model.name}
+            <span className="text-[10px] uppercase tracking-[0.24em] text-zinc-500">
+              Connect
             </span>
+            <span className="text-sm font-medium uppercase tracking-[0.18em] text-zinc-900">
+              {item.label}
+            </span>
+            <span className="text-sm text-zinc-600">{item.detail}</span>
           </div>
         ))}
       </Marquee>

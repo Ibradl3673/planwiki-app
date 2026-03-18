@@ -17,7 +17,9 @@ const PUBLIC_ROUTES = new Set([
 
 const isPublic = (pathname: string) => {
   if (PUBLIC_ROUTES.has(pathname)) return true;
+  if (pathname.startsWith("/.well-known/")) return true;
   if (pathname.startsWith("/api/auth")) return true;
+  if (pathname.startsWith("/api/mcp")) return true;
   if (pathname.startsWith("/_next")) return true;
   if (
     pathname.startsWith("/workspaces/") &&
@@ -27,7 +29,7 @@ const isPublic = (pathname: string) => {
   return false;
 };
 
-export function proxy(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const isAuthenticated = SESSION_COOKIE_NAMES.some((name) =>
     request.cookies.get(name),
@@ -55,6 +57,6 @@ export function proxy(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!api/mcp(?:/.*)?$|api/auth(?:/.*)?$|\\.well-known(?:/.*)?$|_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };

@@ -27,7 +27,7 @@ export function ChecklistWidget({
   const completed = data.items.filter((item) => item.done).length
 
   return (
-    <Card className="rounded-none border border-zinc-950/10 bg-white py-0 shadow-none">
+    <Card className="rounded-sm border border-zinc-950/10 bg-white py-0 shadow-none">
       <CardHeader className="border-b border-zinc-950/10 px-4 py-4 md:px-6 md:py-5">
         <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
           <div className="space-y-1">
@@ -57,7 +57,7 @@ export function ChecklistWidget({
           {data.items.map((item) => (
             <label
               key={item.id}
-              className={`flex min-h-12 items-start gap-3 rounded-none border px-3 py-3 transition-all ${
+              className={`flex min-h-12 items-start gap-3 rounded-sm border px-3 py-3 transition-all ${
                 item.done
                   ? "border-emerald-200 bg-emerald-50/70"
                   : "border-zinc-950/10 bg-white hover:bg-[#faf8f3]"

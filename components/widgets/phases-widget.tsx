@@ -38,7 +38,7 @@ export function PhasesWidget({
   const data = widget as PhasesWidgetData
 
   return (
-    <Card className="rounded-none border border-zinc-950/10 bg-[#f7f2ea] py-0 shadow-none">
+    <Card className="rounded-sm border border-zinc-950/10 bg-[#f7f2ea] py-0 shadow-none">
       <CardHeader className="border-b border-amber-950/10 px-4 py-4 md:px-6 md:py-5">
         <CardDescription className="text-[11px] uppercase tracking-[0.24em] text-amber-800/70">
           Delivery rhythm
@@ -52,7 +52,7 @@ export function PhasesWidget({
           {data.items.map((item, index) => (
             <div key={item.id}>
               <div
-                className={`grid gap-3 border px-3 py-4 transition-colors md:grid-cols-[auto_1fr] md:px-4 ${phaseRowStyles[item.status]}`}
+                className={`grid gap-3 rounded-sm border px-3 py-4 transition-colors md:grid-cols-[auto_1fr] md:px-4 ${phaseRowStyles[item.status]}`}
               >
                 <div className="flex min-w-24 flex-col gap-2">
                   <span className="text-[11px] uppercase tracking-[0.24em] text-zinc-500">
@@ -66,7 +66,7 @@ export function PhasesWidget({
                     >
                       <Badge
                         variant="outline"
-                        className={`h-6 w-fit border px-2.5 text-[11px] uppercase tracking-[0.22em] ${phaseStyles[item.status]}`}
+                        className={`h-6 w-fit rounded-sm border px-2.5 text-[11px] uppercase tracking-[0.22em] ${phaseStyles[item.status]}`}
                       >
                         {item.status}
                       </Badge>
@@ -77,7 +77,7 @@ export function PhasesWidget({
                   ) : (
                     <Badge
                       variant="outline"
-                      className={`h-6 w-fit border px-2.5 text-[11px] uppercase tracking-[0.22em] ${phaseStyles[item.status]}`}
+                      className={`h-6 w-fit rounded-sm border px-2.5 text-[11px] uppercase tracking-[0.22em] ${phaseStyles[item.status]}`}
                     >
                       {item.status}
                     </Badge>
@@ -91,7 +91,7 @@ export function PhasesWidget({
                     {item.tasks.map((task) => (
                       <li
                         key={task}
-                        className={`rounded-none border px-3 py-2 leading-6 ${
+                        className={`rounded-sm border px-3 py-2 leading-6 ${
                           item.status === "done"
                             ? "border-emerald-200 bg-emerald-50/60 text-emerald-950"
                             : item.status === "active"

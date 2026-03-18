@@ -19,7 +19,7 @@ export function LandingNav({ showLogo = true }: LandingNavProps) {
     <nav className="flex w-full flex-wrap items-center gap-3 sm:gap-4">
       {showLogo ? (
         <Link href="/" className="group flex items-center gap-2">
-          <div className="rounded-lg p-1.5 transition-colors">
+          <div className="rounded-none p-1.5 transition-colors">
             <Image src={logo} alt="Logo" width={32} height={32} className="" />
           </div>
           <span className="font-bold text-xl tracking-tight font-serif text-zinc-900 dark:text-zinc-100">

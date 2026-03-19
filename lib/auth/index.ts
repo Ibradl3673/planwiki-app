@@ -11,8 +11,6 @@ const baseURL =
 
 const trustedOrigins = [
   baseURL,
-  "https://planwiki.com",
-  "https://www.planwiki.com",
   "http://localhost:3000",
 ].filter((value, index, array) => array.indexOf(value) === index);
 
@@ -21,11 +19,7 @@ export const auth = betterAuth({
   baseURL,
   trustedOrigins,
   secret: process.env.BETTER_AUTH_SECRET,
-  socialProviders: {
-    google: {
-      prompt: "consent",
-      clientId: process.env.GOOGLE_CLIENT_ID!,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
-    },
+  emailAndPassword: {
+    enabled: true,
   },
 });

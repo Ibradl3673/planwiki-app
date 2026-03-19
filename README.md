@@ -1,101 +1,110 @@
 # PlanWiki
 
-Turn AI plans into interactive workspaces.
+**AI-native workspace for agents and product teams.**
 
-PlanWiki takes plan output from tools like ChatGPT, Claude, Gemini, and DeepSeek, parses the structure, and turns it into editable, shareable workspace blocks instead of leaving it as static text.
+PlanWiki helps product teams move from planning to execution fast. Paste raw ideas or AI-generated plans and instantly get structured checklists, timelines, tasks, and workflows your team and AI agents can execute.
 
-Site: `https://planwiki.com`
+→ **[PlanWiki](https://planwiki.com)** — hosted version, no setup and credit card required.
 
-## Why PlanWiki
+---
 
-AI tools are good at generating plans, but the output usually arrives as long text that still needs manual cleanup before it becomes useful.
+## How it works
 
-PlanWiki removes that step. Paste in the raw plan, and PlanWiki turns it into a workspace you can inspect, edit, and share.
+**Paste** — Drop a feature spec, sprint plan, PRD, or project brief from any AI output.
 
-## How It Works
+**Structure** — PlanWiki breaks it into tasks, phases, and execution views your team can review and act on.
 
-1. Generate a plan in any AI tool.
-2. Copy the output.
-3. Paste it into PlanWiki.
-4. PlanWiki converts it into structured UI you can work with.
+**Execute** — Connect your agents via MCP. Track progress in real time. Just start working.
 
-## What PlanWiki Generates
+---
 
-- Task lists
-- Checklists
-- Budget blocks
-- Timeline-style sections
-- Editable grouped content
-- Shareable public pages
+## Connect your agents
 
-## Example
+PlanWiki has a built-in MCP server. Connect Claude Code, Cursor, Codex, GitHub Copilot, Windsurf, Gemini, or any MCP-compatible agent directly to your workspace. Your agent reads the plan, picks up tasks, and updates progress automatically.
 
-Input:
+Head to the **Agents tab** in your workspace to grab your config.
 
-```text
-1. Buy groceries
-2. Fix phone
-3. Purchase domain
-4. Pay rent
+---
+
+## Self-host in 5 minutes
+
+```bash
+git clone https://github.com/planwiki/planwiki-app
+cd planwiki
+cp .env.example .env
+npm install
+npx drizzle-kit push
+npm run dev
 ```
 
-Output:
+Or deploy in one click:
 
-- Interactive task cards
-- Progress tracking
-- Structured plan sections
-- A workspace that can be updated over time
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/planwiki/planwiki-app)
+[![Deploy to Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/planwiki/planwiki-app)
 
-## Publish and Share
+---
 
-Plans can be published as public pages and shared with a link.
+## Environment variables
 
-Examples:
+Copy `.env.example` to `.env` and fill in:
 
-```text
-planwiki.com/p/startup-launch
-planwiki.com/p/30-day-fitness-plan
-planwiki.com/p/personal-budget
+```bash
+# Database
+DATABASE_URL=postgresql://user:password@localhost:5432/planwiki
+
+# Auth
+BETTER_AUTH_SECRET=replace-me
+BETTER_AUTH_URL=http://localhost:3000
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
+# AI provider — pick one
+LLM_PROVIDER=openai        # openai | anthropic | google | groq | azure
+LLM_MODEL=gpt-4.1-mini    # optional, overrides the provider default
+
+# API keys — only set the one you need
+OPENAI_API_KEY=
+ANTHROPIC_API_KEY=
+GOOGLE_GENERATIVE_AI_API_KEY=
+GROQ_API_KEY=
+AZURE_API_KEY=
+AZURE_RESOURCE_NAME=
 ```
 
-This makes it possible to:
+Set `LLM_PROVIDER` to the provider you want and add only that provider's API key. Everything else is optional.
 
-- Share a plan with others
-- Reuse proven workflows
-- Turn AI output into something people can actually collaborate around
+---
 
-## Example Use Cases
+## Database
 
-- Startup execution plans
-- Budget planning
-- Product roadmaps
-- Study schedules
-- Personal goals
-- Project planning
+PlanWiki uses PostgreSQL with Drizzle ORM. Push the schema to your database with:
 
-## Core Idea
-
-```text
-AI plan -> PlanWiki -> interactive workspace
+```bash
+npx drizzle-kit push
 ```
 
-## Open Source
+---
 
-PlanWiki is open source.
+## Auth
 
-Repository: `https://github.com/planwiki/planwiki-app`
+Uses Better Auth with email and password. No OAuth setup required for self-hosting.
 
-## Legal Pages
+- `/` and `/login` — login page
+- Authenticated users land on `/workspaces`
 
-The marketing site includes:
+---
 
-- Terms: `https://planwiki.com/terms`
-- Privacy: `https://planwiki.com/privacy`
+## Tech stack
 
-## Status
+- **[Next.js](https://nextjs.org)** — Frontend
+- **[Drizzle ORM](https://orm.drizzle.team)** — Typesafe Queries
+- **[PostgreSQL](https://postgresql.org)** — Database
+- **[AI SDK](https://sdk.vercel.ai)** — LLM provider routing
+- **[Better Auth](https://better-auth.com)** — Email and password authentication
+- **[shadcn/ui](https://ui.shadcn.com)** — UI library
+- **[tRPC](https://trpc.io)** — End-to-end typesafe API
 
-Early stage.
+---
 
 ## License
 
-GNU Affero General Public License v3.0
+[GNU Affero General Public License v3.0](./LICENSE)

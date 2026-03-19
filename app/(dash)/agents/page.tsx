@@ -2,7 +2,7 @@ import { desc, eq } from "drizzle-orm";
 import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { SimpleAgentConnect } from "@/components/agents/simple-agent-connect";
+import { ConnectAgent } from "@/components/agents/connect-agent";
 import { auth } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { apiKeys } from "@/lib/db/schema";
@@ -53,7 +53,7 @@ export default async function AgentsPage() {
           </p>
         </header>
 
-        <SimpleAgentConnect
+        <ConnectAgent
           mcpUrl={mcpUrl}
           initialKeys={userApiKeys.map((key) => ({
             id: key.id,

@@ -5,15 +5,7 @@ const SESSION_COOKIE_NAMES = [
   "__Secure-better-auth.session_token",
 ];
 
-const PUBLIC_ROUTES = new Set([
-  "/",
-  "/login",
-  "/auth/callback",
-  "/privacy",
-  "/terms",
-  "/sitemap.xml",
-  "/robots.txt",
-]);
+const PUBLIC_ROUTES = new Set(["/", "/login", "/auth/callback"]);
 
 const isPublic = (pathname: string) => {
   if (PUBLIC_ROUTES.has(pathname)) return true;

@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  useEffect,
   useMemo,
   useState,
   type KeyboardEvent,
@@ -12,9 +11,9 @@ import { ArrowRight, SentIcon } from "@hugeicons/core-free-icons"
 import { HugeiconsIcon } from "@hugeicons/react"
 
 import {
-  SimpleAgentConnect,
+  ConnectAgent,
   type ApiKeyRecord,
-} from "@/components/agents/simple-agent-connect"
+} from "@/components/agents/connect-agent"
 import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
 import { Textarea } from "@/components/ui/textarea"
@@ -406,7 +405,7 @@ export function WelcomeOnboarding({
                 </Button>
               </div>
 
-              <SimpleAgentConnect mcpUrl={mcpUrl} initialKeys={initialKeys} />
+              <ConnectAgent mcpUrl={mcpUrl} initialKeys={initialKeys} />
             </div>
           ) : null}
         </div>

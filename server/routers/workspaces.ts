@@ -2,7 +2,6 @@ import { and, asc, eq } from "drizzle-orm";
 import { z } from "zod";
 
 import {
-  WORKSPACE_GENERATOR_MODEL,
   buildGenerateNewWorkspacePrompt,
   buildUpdateWorkspacePrompt,
   createWorkspaceGeneratorContext,
@@ -11,6 +10,7 @@ import {
 } from "@/lib/agents/workspace-generator";
 import { db } from "@/lib/db";
 import { messages, workspaces } from "@/lib/db/schema";
+import { WORKSPACE_GENERATOR_MODEL } from "@/lib/llm-provider.config";
 import {
   coerceWidgetId,
   workspaceWidgetSchema,

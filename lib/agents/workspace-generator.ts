@@ -1,6 +1,9 @@
 import { Output, ToolLoopAgent } from "ai";
 
-import { azure } from "../llm-provider.config";
+import {
+  WORKSPACE_GENERATOR_MODEL,
+  getLanguageModel,
+} from "../llm-provider.config";
 import {
   createWorkspaceGeneratorContext,
   workspaceGeneratorContextSchema,
@@ -11,24 +14,23 @@ import {
 import { systemPromptBuilder } from "./prompts/system-prompt-builder";
 import type { WorkspaceWidget } from "@/lib/widgets/widget-registry";
 
-export const WORKSPACE_GENERATOR_MODEL = "gpt-4.1-mini";
-
-export const workspaceGeneratorAgent = new ToolLoopAgent({
-  id: "workspace-generator-agent",
-  model: azure(WORKSPACE_GENERATOR_MODEL),
-  output: Output.object({
-    schema: generatedWorkspaceSchema,
-    description:
-      "A JSON object representing a PlanWiki workspace, adhering to the output contract specified in the system prompt.",
-  }),
-  callOptionsSchema: workspaceGeneratorContextSchema,
-  prepareCall: ({ options, ...settings }) => ({
-    ...settings,
-    instructions: systemPromptBuilder(
-      options ?? defaultWorkspaceGeneratorContext,
-    ),
-  }),
-});
+const createWorkspaceGeneratorAgent = async () =>
+  new ToolLoopAgent({
+    id: "workspace-generator-agent",
+    model: await getLanguageModel(WORKSPACE_GENERATOR_MODEL),
+    output: Output.object({
+      schema: generatedWorkspaceSchema,
+      description:
+        "A JSON object representing a PlanWiki workspace, adhering to the output contract specified in the system prompt.",
+    }),
+    callOptionsSchema: workspaceGeneratorContextSchema,
+    prepareCall: ({ options, ...settings }) => ({
+      ...settings,
+      instructions: systemPromptBuilder(
+        options ?? defaultWorkspaceGeneratorContext,
+      ),
+    }),
+  });
 
 export const generateWorkspaceWithAgent = async ({
   prompt,
@@ -37,6 +39,7 @@ export const generateWorkspaceWithAgent = async ({
   prompt: string;
   context?: WorkspaceGeneratorContext;
 }) => {
+  const workspaceGeneratorAgent = await createWorkspaceGeneratorAgent();
   const { output } = await workspaceGeneratorAgent.generate({
     prompt,
     options: context,

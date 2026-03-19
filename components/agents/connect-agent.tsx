@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { Copy01Icon, Tick02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { toast } from "sonner";
@@ -134,7 +134,7 @@ const buildClaudeCodeConfig = (mcpUrl: string, apiKey: string) =>
     2,
   );
 
-export function SimpleAgentConnect({
+export function ConnectAgent({
   mcpUrl,
   initialKeys,
 }: {
@@ -147,17 +147,6 @@ export function SimpleAgentConnect({
   const [selectedKeyId, setSelectedKeyId] = useState(initialKeys[0]?.id ?? "");
   const [keys, setKeys] = useState(initialKeys);
   const [copiedValue, setCopiedValue] = useState<"config" | "key" | null>(null);
-
-  useEffect(() => {
-    if (!keys.length) {
-      setSelectedKeyId("");
-      return;
-    }
-
-    setSelectedKeyId((current) =>
-      current && keys.some((key) => key.id === current) ? current : keys[0]!.id,
-    );
-  }, [keys]);
 
   const createApiKey = trpc.agents.createApiKey.useMutation({
     onSuccess: async (response) => {
@@ -186,9 +175,12 @@ export function SimpleAgentConnect({
     },
   });
 
-  const selectedProvider =
-    providers.find((item) => item.id === provider) ?? providers[0];
-  const selectedKey = keys.find((item) => item.id === selectedKeyId) ?? keys[0] ?? null;
+  const resolvedSelectedKeyId =
+    selectedKeyId && keys.some((key) => key.id === selectedKeyId)
+      ? selectedKeyId
+      : (keys[0]?.id ?? "");
+  const selectedKey =
+    keys.find((item) => item.id === resolvedSelectedKeyId) ?? keys[0] ?? null;
   const config = useMemo(() => {
     const apiKey = selectedKey?.apiKey ?? "<create-an-api-key>";
 
@@ -278,7 +270,10 @@ export function SimpleAgentConnect({
                     <label className="text-xs font-medium text-zinc-700">
                       API key
                     </label>
-                    <Select value={selectedKeyId} onValueChange={setSelectedKeyId}>
+                    <Select
+                      value={resolvedSelectedKeyId}
+                      onValueChange={setSelectedKeyId}
+                    >
                       <SelectTrigger className="h-10 w-full rounded-sm border-zinc-950/10 bg-white shadow-none">
                         <SelectValue placeholder="Select a key" />
                       </SelectTrigger>

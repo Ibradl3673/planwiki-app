@@ -105,6 +105,12 @@ Uses Better Auth with email and password. No OAuth setup required for self-hosti
 
 ---
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=planwiki/planwiki-app&type=date&legend=top-left)](https://www.star-history.com/#planwiki/planwiki-app&type=date&legend=top-left)
+
+---
+
 ## License
 
 [GNU Affero General Public License v3.0](./LICENSE)

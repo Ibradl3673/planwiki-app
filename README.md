@@ -1,20 +1,32 @@
 # PlanWiki
+**Turn PRDs into Linear issues and Trello boards using AI.**
 
-**AI-native workspace for agents and product teams.**
+Paste a feature spec, sprint plan, or raw idea. PlanWiki structures it into tasks, phases, and checklists — then exports directly to Linear or Trello so your team can start working immediately.
 
-PlanWiki helps product teams move from planning to execution fast. Paste raw ideas or AI-generated plans and instantly get structured checklists, timelines, tasks, and workflows your team and AI agents can execute.
-
-→ **[PlanWiki](https://planwiki.com)** — hosted version, no setup and credit card required.
+→ **[PlanWiki](https://planwiki.com)** — hosted version, no setup or credit card required.
 
 ---
 
 ## How it works
 
-**Paste** — Drop a feature spec, sprint plan, PRD, or project brief from any AI output.
+**Paste** — Drop a PRD, feature spec, sprint plan, or AI-generated output into the chat.
 
-**Structure** — PlanWiki breaks it into tasks, phases, and execution views your team can review and act on.
+**Structure** — PlanWiki breaks it into tasks, phases, checklists, and timelines your team can review and act on.
 
-**Execute** — Connect your agents via MCP. Track progress in real time. Just start working.
+**Export** — Push to Linear or Trello in one click. Issues and cards are created automatically, ready for your team.
+
+**Execute** — Optionally connect AI agents via MCP to pick up tasks and update progress in real time.
+
+---
+
+## Export to Linear and Trello
+
+Once your workspace is structured, export it directly to your existing tools:
+
+- **Linear** — Creates a project with issues, priorities, and labels mapped from your plan.
+- **Trello** — Creates a board with cards organized by phase or checklist.
+
+No manual copy-paste. No reformatting. Just connect your account and push.
 
 ---
 
@@ -68,9 +80,15 @@ GOOGLE_GENERATIVE_AI_API_KEY=
 GROQ_API_KEY=
 AZURE_API_KEY=
 AZURE_RESOURCE_NAME=
+
+# Integrations
+LINEAR_CLIENT_ID=
+LINEAR_CLIENT_SECRET=
+TRELLO_API_KEY=
+TRELLO_API_SECRET=
 ```
 
-Set `LLM_PROVIDER` to the provider you want and add only that provider's API key. Everything else is optional.
+Set `LLM_PROVIDER` to the provider you want and add only that provider's API key. Add Linear or Trello credentials only when you want those integrations.
 
 ---
 
@@ -96,7 +114,7 @@ Uses Better Auth with email and password. No OAuth setup required for self-hosti
 ## Tech stack
 
 - **[Next.js](https://nextjs.org)** — Frontend
-- **[Drizzle ORM](https://orm.drizzle.team)** — Typesafe Queries
+- **[Drizzle ORM](https://orm.drizzle.team)** — Typesafe queries
 - **[PostgreSQL](https://postgresql.org)** — Database
 - **[AI SDK](https://sdk.vercel.ai)** — LLM provider routing
 - **[Better Auth](https://better-auth.com)** — Email and password authentication

